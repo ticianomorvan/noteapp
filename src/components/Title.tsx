@@ -40,8 +40,8 @@ export default function Title() {
     }, [])
     return (
         <section id="section-title" className="h-screen flex flex-col items-center justify-center">
-            <span id="title-tasks-icon" className="p-3 border-4 rounded-lg">
-                <FaTasks className="text-2xl" />
+            <span id="title-tasks-icon" className="p-3 border-4 border-primary border-opacity-50 rounded-lg">
+                <FaTasks className="text-2xl text-primary" />
             </span>
             <h1 id="title-h1" className="font-gilroy-bold text-primary text-5xl p-2">Note app</h1>
             <h2 id="title-h2" className="font-gilroy-medium text-xl">For all of your chores.</h2>

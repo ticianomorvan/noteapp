@@ -6,7 +6,7 @@
     "build": "tsc && vite build",
     "serve": "vite preview"
   },
-  "autor":"Ticiano Morvan <ticiano.morvan@protonmail.com>",
+  "autor": "Ticiano Morvan <ticiano.morvan@protonmail.com>",
   "dependencies": {
     "react": "^17.0.0",
     "react-dom": "^17.0.0",

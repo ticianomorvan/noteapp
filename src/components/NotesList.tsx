@@ -1,14 +1,13 @@
 import AddNote from "./AddNote";
 import Note from "./Note";
-// import { INote } from "./Note";
 
-const NotesList = ({ notes } ) => {
+const NotesList = ({ notes, handleAddNote }) => {
     return (
         <section className="grid lg:grid-cols-4 gap-4">
             {notes.map((note: any) => {
-                return <Note id={note.id} title={note.title} description={note.description} />
+                return <Note key={note.title} id={note.id} title={note.title} description={note.description} />
             })}
-            <AddNote />
+            <AddNote handleAddNote={handleAddNote} />
         </section>
     )
 }

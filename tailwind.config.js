@@ -13,7 +13,7 @@ module.exports = {
         'gilroy-bold': ['Gilroy-Bold', 'sans-serif']
       },
       colors: {
-        primary: '#1D3557',
+        primary: '#205AE3',
         secondary: '#457B9D',
         tertiary: '#A8DADC',
         warning: '#E63946'
