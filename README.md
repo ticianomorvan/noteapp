@@ -1,6 +1,6 @@
-<span align="center">
+<p align="center">
     <img src="https://i.imgur.com/YrQgOVp.png" width="256px" height="256px">
-</span>
+</p>
 <h1 align="center">
     NoteApp
 </h1>
