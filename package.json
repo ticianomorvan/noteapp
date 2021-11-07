@@ -1,5 +1,6 @@
 {
   "name": "noteapp",
+  "description": "NoteApp is a web-based app that allows you to take notes, search them and delete them, if necessary. It's designed to be simple and fast, along with being a good option to choose.",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
