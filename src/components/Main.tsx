@@ -1,39 +1,70 @@
-import { useState, useEffect } from "react";
-import ScrollReveal from "scrollreveal";
-import { v4 as uuidv4 } from 'uuid';
+import {useState, useEffect} from 'react';
+import {v4 as uuidv4} from 'uuid';
+import ScrollReveal from 'scrollreveal';
 
 // Components
-import NotesList from "./NotesList";
+import NotesList from './NotesList';
+import Search from './Search';
 
 export default function Main() {
-    const [notes, setNotes] = useState([{
-        id: uuidv4(),
-        title: 'Create your own note!',
-        description: 'Title is needed, description is optional :D'
-    }])
+  const [notes, setNotes] = useState([{
+    id: uuidv4(),
+    title: 'Create your own note!',
+    description: 'Title is needed, description is optional :D',
+  }]);
 
-    /*
-    useEffect(() => {
-        const sectionTasks = document.getElementById('section-tasks') as HTMLElement;
-        ScrollReveal().reveal(sectionTasks, { delay: 300});
-    }, [])
-    */
+  const [searchText, setSearchText] = useState('');
 
-    const addNote = (id: string, title: string, description: string) => {
-        const newNote = {
-            id: id,
-            title: title,
-            description: description
-        }
-
-        const newNotes = [...notes, newNote];
-        setNotes(newNotes);
+  useEffect(() => {
+    const savedNotes = JSON.parse(localStorage.getItem('noteapp-notes')!);
+    if (savedNotes) {
+      setNotes(savedNotes);
     }
+  }, []);
 
-    return (
-        <section id="section-tasks" className="h-screen flex flex-col items-center relative">
-            <h3 className="font-gilroy-medium text-3xl text-primary mb-4 border-b border-primary">Your notes</h3>
-            <NotesList notes={notes} handleAddNote={addNote} />
-        </section>
-    )
+  useEffect(() => {
+    localStorage.setItem(
+        'noteapp-notes',
+        JSON.stringify(notes)
+    );
+  }, [notes]);
+
+  useEffect(() => {
+    ScrollReveal().reveal('.section-tasks', {delay: 300});
+  }, []);
+
+  const addNote = (id: string, title: string, description: string) => {
+    const newNote = {
+      id: id,
+      title: title,
+      description: description,
+    };
+
+    const newNotes = [...notes, newNote];
+    setNotes(newNotes);
+  };
+
+  const deleteNote = (id: string) => {
+    const newNotes = notes.filter((note) => note.id !== id);
+    setNotes(newNotes);
+  };
+
+  return (
+    <section className="section-tasks h-screen
+                        flex flex-col items-center relative">
+      <h3 className="font-gilroy-medium text-3xl
+                   text-primary mb-4 border-b border-primary">Your notes</h3>
+      <Search handleSearchText={setSearchText} />
+      <NotesList
+        notes={notes.filter((note) => {
+          if (note.description.toLowerCase().includes(searchText) ||
+              note.title.toLowerCase().includes(searchText)) {
+            return note;
+          }
+        })}
+        handleAddNote={addNote}
+        handleDeleteNote={deleteNote}
+      />
+    </section>
+  );
 }

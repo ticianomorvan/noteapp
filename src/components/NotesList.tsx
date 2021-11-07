@@ -1,15 +1,32 @@
-import AddNote from "./AddNote";
-import Note from "./Note";
+import React from 'react';
 
-const NotesList = ({ notes, handleAddNote }) => {
-    return (
-        <section className="grid lg:grid-cols-4 gap-4">
-            {notes.map((note: any) => {
-                return <Note key={note.title} id={note.id} title={note.title} description={note.description} />
-            })}
-            <AddNote handleAddNote={handleAddNote} />
-        </section>
-    )
+// Components
+import AddNote from './AddNote';
+import Note from './Note';
+
+interface INotesList {
+    notes: Array<{id: string, title: string, description: string}>;
+    handleAddNote: (id: string, title: string, description: string) => void;
+    handleDeleteNote: (id: string) => void;
 }
 
-export default NotesList
+const NotesList: React.FC<INotesList> = (
+    {notes, handleAddNote, handleDeleteNote}
+) => {
+  return (
+    <section className="grid lg:grid-cols-4 gap-4">
+      {notes.map((note: any) => {
+        return <Note
+          key={note.id}
+          id={note.id}
+          title={note.title}
+          description={note.description}
+          handleDeleteNote={handleDeleteNote}
+        />;
+      })}
+      <AddNote handleAddNote={handleAddNote} />
+    </section>
+  );
+};
+
+export default NotesList;
