@@ -7,6 +7,12 @@
 <p align="center">
     A simple app for taking, saving and deleting notes.
 </p>
+<p align="center">
+    <a href="https://wakatime.com/badge/user/d0793d36-09a9-4cf6-b4f9-0c8c1b6feb40/project/38412a31-dd09-4010-991b-dbab1ccaece3">
+        <img src="https://wakatime.com/badge/user/d0793d36-09a9-4cf6-b4f9-0c8c1b6feb40/project/38412a31-dd09-4010-991b-dbab1ccaece3.svg" alt="wakatime">
+    </a>
+    <img src="https://img.shields.io/github/languages/code-size/Ti7oyan/noteapp?style=flat">
+</p>
 <hr>
 
 ## What is NoteApp?
