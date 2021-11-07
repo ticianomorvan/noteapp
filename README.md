@@ -1,4 +1,4 @@
-<img src="https://imgur.com/a/30VyHEv" width="256px" height="256px">
+<img src="https://i.imgur.com/YrQgOVp.png" width="256px" height="256px">
 <h1 align="center">
     NoteApp
 </h1>
